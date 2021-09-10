@@ -36,6 +36,12 @@ class BrandController extends Controller
         return new BrandResource($this->brandService->saveOrUpdateBrand($request, $id));
     }
 
+    public function searchBrand(Request $request): JsonResource
+    {
+        $data = Brand::search($request->get('search_query'))->get();
+        return BrandCollection::collection($data);
+    }
+
     public function sendConfirmationToDeleteBrand(Brand $brand): JsonResponse
     {
         // create delete confirmation token and save it to the brand
