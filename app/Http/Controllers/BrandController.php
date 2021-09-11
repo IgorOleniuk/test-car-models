@@ -59,6 +59,6 @@ class BrandController extends Controller
         $brand->delete();
 
         Session::flash('message','The brand and all of its models have been deleted successfully');
-        return redirect('/brands');
+        return redirect('/');
     }
 }
