@@ -20,4 +20,4 @@ Bonus questions / points:
  - Answer: php artisan make:model Brand -mc && php artisan make:model CarModel -mc
 
 2. BONUS POINTS if you schedule a task that deletes unused tokens for brand deletion
- - Answer: Done. You can check it in the app\Console\Kernel.php 
+ - Answer: Done. You can check it in the app\Console\Kernel.php. Don't forget to run php artisan schedule:work first!
