@@ -18,8 +18,6 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = User::first();
-        Auth::login($user);
         if (Auth::check() && Auth::user()->isAdmin()) {
             return $next($request);
         }

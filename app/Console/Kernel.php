@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // delete unused token for confirmation of the brand deleting which are older than one day every day at midnight
         $schedule->call(function () {
             DB::table('brand_confirmation_tokens')
                 ->where('created_at', '<', Carbon::now()->subDay()->toDateTimeString())

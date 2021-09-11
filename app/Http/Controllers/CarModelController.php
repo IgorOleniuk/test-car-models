@@ -32,4 +32,10 @@ class CarModelController extends Controller
     {
         return new CarModelResource($this->carModelService->saveOrUpdateBrand($request, $brand, $id));
     }
+
+    public function searchCarModel(Request $request, Brand $brand): JsonResource
+    {
+        $data = $brand->car_models()->search($request->get('search_query'))->get();
+        return CarModelCollection::collection($data);
+    }
 }

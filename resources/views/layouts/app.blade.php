@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @if ( Illuminate\Support\Facades\Auth::check())
+        <meta name="is_admin" content="{{  Illuminate\Support\Facades\Auth::user()->isAdmin() }}" />
+    @endif
 </head>
 <body>
     <div id="app">

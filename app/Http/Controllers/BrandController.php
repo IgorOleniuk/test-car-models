@@ -11,6 +11,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class BrandController extends Controller
 {
@@ -36,12 +37,6 @@ class BrandController extends Controller
         return new BrandResource($this->brandService->saveOrUpdateBrand($request, $id));
     }
 
-    public function searchBrand(Request $request): JsonResource
-    {
-        $data = Brand::search($request->get('search_query'))->get();
-        return BrandCollection::collection($data);
-    }
-
     public function sendConfirmationToDeleteBrand(Brand $brand): JsonResponse
     {
         // create delete confirmation token and save it to the brand
@@ -63,6 +58,7 @@ class BrandController extends Controller
         $brand->car_models()->delete();
         $brand->delete();
 
-        return redirect(config('app.url') . '/brands');
+        Session::flash('message','The brand and all of its models have been deleted successfully');
+        return redirect('/brands');
     }
 }

@@ -6,3 +6,65 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons';
+
+.brand-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+        font-size: 22px;
+    }
+}
+
+.items-list {
+    min-height: 300px;
+
+    .list-item {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        margin-bottom: 10px;
+
+        a {
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+        }
+
+        i {
+            margin-right: 5px;
+            font-size: 13px;
+
+            &:hover {
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            &.bi-trash-fill {
+                color: red;
+            }
+        }
+    }
+}
+
+.empty_input {
+    border-color: red;
+}
+
+.back-to-brands {
+    position: absolute;
+    left: -120px;
+    top: 17px;
+}
+
+.models-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .model-search {
+        max-width: 200px;
+    }
+}
